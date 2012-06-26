@@ -20,8 +20,9 @@ module OmniAuth
 
       info do
         {
-          :display_name => access_token.params['display_name'],
+          :name => access_token.params['display_name'],
           :username => access_token.params['username'],
+          :nickname => (access_token.params['is_anonymous'] == '1' ? '' : access_token.params['username']),
           :is_anonymous => (access_token.params['is_anonymous'] == '1')
         }
       end
